@@ -14,3 +14,35 @@ body:has(.atelier-journey) .store-header{position:absolute;top:34px;left:0;right
 @media(max-width:1000px){.atelier-fallback.dimensional .bottle-orbit{scale:1.05}.scent-halo{width:370px;height:370px}.scent-halo.second{width:410px;height:410px}}
 @media(max-width:700px){body:has(.atelier-journey) .store-header{top:31px;height:66px}.atelier-sticky{height:calc(100svh - 31px);min-height:780px}.atelier-copy{top:105px;left:7%;width:86%}.atelier-copy h1{font-size:65px;margin:17px 0}.atelier-copy .eyebrow{font-size:6px}.atelier-link{font-size:8px;padding-top:0}.atelier-stage{top:29%;left:8%;width:84%;height:48%}.atelier-fallback.dimensional .bottle-orbit{scale:.77;top:48%}.scent-halo{width:280px;height:280px}.scent-halo.second{width:320px;height:320px}.bottle-shadow{top:90%;width:170px}.atelier-product{top:auto;bottom:88px}.atelier-product h2{font-size:32px}.atelier-bottom{bottom:28px}.atelier-copy .atelier-intro{display:none}.atelier-play{bottom:52px}.atelier-product .atelier-price{display:none}.atelier-product .atelier-notes{font-size:7px}.atelier-watermark{top:50%}.atelier-journey{height:330vh}}
 @media(prefers-reduced-motion:reduce){.prism-bottle{transform:rotateX(-8deg) rotateY(-20deg) rotateZ(-7deg)}.atelier-fallback.dimensional,.prism-bottle,.prism-cap,.glass-glint,.scent-halo,.bottle-shadow,.scent-spark,.scent-dots .active>span:after{animation:none!important}.atelier-journey{height:auto}.atelier-sticky{min-height:780px}.atelier-fallback.dimensional .bottle-orbit{transition:none}}
+
+/* A product change is a physical exchange: one glass object turns away while the next turns into the light. */
+.atelier-fallback.dimensional{transform-origin:50% 50%;will-change:transform,opacity,filter}
+.atelier-fallback.dimensional.incoming{z-index:2;animation:bottle-stage-in 1.42s cubic-bezier(.18,.75,.2,1) both}
+.atelier-fallback.dimensional.outgoing{z-index:3;pointer-events:none;animation:bottle-stage-out 1.35s cubic-bezier(.6,.05,.22,1) both}
+.atelier-fallback.dimensional.outgoing .prism-cap{animation:none}
+.atelier-fallback.dimensional.outgoing .prism-bottle{animation:none;transform:rotateX(-8deg) rotateY(-25deg) rotateZ(-6deg)}
+@keyframes bottle-stage-in{0%{opacity:0;filter:blur(18px);transform:translateX(42%) translateZ(-180px) rotateY(-98deg) scale(.65)}42%{opacity:.9;filter:blur(3px)}100%{opacity:1;filter:blur(0);transform:translateX(0) translateZ(0) rotateY(0) scale(1)}}
+@keyframes bottle-stage-out{0%{opacity:1;filter:blur(0);transform:translateX(0) translateZ(0) rotateY(0) scale(1)}55%{opacity:.75;filter:blur(4px)}100%{opacity:0;filter:blur(20px);transform:translateX(-48%) translateZ(-200px) rotateY(102deg) scale(.62)}}
+.prism-front{background:linear-gradient(110deg,#f7e4bd85 0%,#725b3177 13%,#1c281eec 45%,#111c17ee 77%,#e8c57e75 100%);border-color:#e8c888aa;box-shadow:inset 5px 3px 8px #fff3bf6d,inset -5px -8px 12px #0b0e0bc9,0 0 28px #dcb96b22}
+.prism-liquid{inset:8px 1px 7px;background:linear-gradient(90deg,#bc814383,#193e39d6 45%,#0c201cdc 85%);border-top-color:#e6d29977}
+.prism-back{background:linear-gradient(100deg,#ddc48988,#1a302bdd 40%,#071511 80%,#c6a6639c)}
+.prism-left,.prism-right{background:linear-gradient(90deg,#181e1bc9,#295047c9,#d1b5799c)}
+.rose .prism-front{background:linear-gradient(110deg,#f5c8c09c,#593038e8 38%,#241d23ef 75%,#ddaba68c)}
+.rose .prism-liquid{background:linear-gradient(100deg,#925c67c9,#321e28d9,#986e74c9)}
+.green .prism-front{background:linear-gradient(110deg,#d5e6bf8c,#315b48e8 38%,#101e19f2 75%,#a4bc918c)}
+.green .prism-liquid{background:linear-gradient(100deg,#5f9977bd,#173a2ae0,#5b8965c9)}
+.dark .prism-front{background:linear-gradient(110deg,#dec8a18c,#32313aea 38%,#11131af5 75%,#bea68888)}
+.dark .prism-liquid{background:linear-gradient(100deg,#756a65c9,#1c1d28e5,#574538c9)}
+.lilac .prism-front{background:linear-gradient(110deg,#e6cfe998,#584361e9 38%,#201a2af2 75%,#b998c48c)}
+.lilac .prism-liquid{background:linear-gradient(100deg,#9c7ba6c9,#34223edc,#7b668bc9)}
+.citrus .prism-front{background:linear-gradient(110deg,#f4e7aa9a,#645f2de9 38%,#252514f2 75%,#d8ce8e8c)}
+.citrus .prism-liquid{background:linear-gradient(100deg,#c3b967bb,#4a4b23dc,#998b3dc9)}
+.prism-label{inset:36px 21px 36px;background:linear-gradient(120deg,#19362bc9,#0b1f1bdf 56%,#152924d9);border:1px solid #d8b76c;outline:2px solid #b69459;outline-offset:-8px;box-shadow:0 0 0 4px #15251e9e,0 0 24px #dfbe7233;color:#eddcb5}
+.prism-label:before,.prism-label:after{content:'◇';position:absolute;left:50%;transform:translateX(-50%);font:12px Georgia;color:#d8b76c}
+.prism-label:before{top:5px}.prism-label:after{bottom:5px}
+.prism-label>span{font-size:18px;letter-spacing:3px}.prism-label b{color:#dcc58e}.prism-label i{color:#f3e6ca;text-shadow:0 2px 10px #0c1715}
+.prism-cap>span{background:repeating-linear-gradient(90deg,#7d623a 0,#f1d596 2px,#a17b42 4px,#d5b071 6px);border-top:2px solid #ffeca9;border-bottom:3px solid #7f5c31;box-shadow:inset 0 0 15px #5a3919a8}
+.prism-cap .cap-top{background:radial-gradient(circle,#f4dc9f,#a4773d)}
+.prism-neck{background:linear-gradient(90deg,#765431,#e3c686,#8e6639)}
+@media(max-width:700px){.atelier-sticky{min-height:640px}}
+@media(prefers-reduced-motion:reduce){.atelier-fallback.dimensional.incoming,.atelier-fallback.dimensional.outgoing{animation:none!important}.atelier-fallback.dimensional.outgoing{display:none}}
