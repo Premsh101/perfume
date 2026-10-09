@@ -46,3 +46,14 @@ body:has(.atelier-journey) .store-header{position:absolute;top:34px;left:0;right
 .prism-neck{background:linear-gradient(90deg,#765431,#e3c686,#8e6639)}
 @media(max-width:700px){.atelier-sticky{min-height:640px}}
 @media(prefers-reduced-motion:reduce){.atelier-fallback.dimensional.incoming,.atelier-fallback.dimensional.outgoing{animation:none!important}.atelier-fallback.dimensional.outgoing{display:none}}
+
+/* Immediate tactile response when a visitor inspects the bottle. */
+.atelier-stage[data-hover=true] .dimensional.incoming .bottle-orbit{transform:translate(-50%,-50%) rotateX(var(--pointer-y,0deg)) rotateY(var(--pointer-x,0deg)) scale(1.12);transition:transform .18s ease-out}
+.atelier-stage[data-hover=true] .dimensional.incoming .prism-bottle{animation:bottle-hover-orbit 2.8s ease-in-out infinite alternate}
+.atelier-stage[data-hover=true] .dimensional.incoming .prism-cap{animation:cap-hover-lift 1.5s ease-in-out infinite alternate}
+.atelier-stage[data-hover=true] .dimensional.incoming .glass-glint{animation-duration:2s;opacity:.9}
+.atelier-stage[data-hover=true] .dimensional.incoming .scent-halo{opacity:.42;animation-duration:5s}
+.atelier-stage[data-hover=true] .dimensional.incoming .bottle-shadow{opacity:.45;transform:translateX(-50%) scale(1.35)}
+@keyframes bottle-hover-orbit{from{transform:translateY(-5px) rotateX(-13deg) rotateY(-26deg) rotateZ(-8deg)}to{transform:translateY(-22px) rotateX(9deg) rotateY(30deg) rotateZ(7deg)}}
+@keyframes cap-hover-lift{from{transform:translateY(-4px) rotateY(-7deg)}to{transform:translateY(-20px) rotateY(13deg)}}
+@media(prefers-reduced-motion:reduce){.atelier-stage[data-hover=true] .dimensional.incoming .prism-bottle,.atelier-stage[data-hover=true] .dimensional.incoming .prism-cap{animation:none!important}.atelier-stage[data-hover=true] .dimensional.incoming .bottle-orbit{transform:translate(-50%,-50%) rotateX(-8deg) rotateY(-20deg)}}
